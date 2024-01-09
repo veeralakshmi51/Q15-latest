@@ -8,7 +8,7 @@ export const getAllPatient = async (dispatch: any,org: string) => {
   dispatch(isLoading());
   try {
     const response = await axios.get(`${baseURL}/patient/get/activePatient/${org}`);
-    console.log('Response:',response.data)
+
     if (response.data.message.code === successCode) {
       dispatch(getPatientSuccess(response.data.data));
     } else {

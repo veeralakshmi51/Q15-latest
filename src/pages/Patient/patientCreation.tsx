@@ -377,7 +377,6 @@ const PatientCreation: React.FC = () => {
             faxed: ""
           }
         ],
-        // beaconDevice: formValues.deviceId,
         deviceId: formValues.deviceId,
         devices: [
           {
@@ -469,12 +468,11 @@ const PatientCreation: React.FC = () => {
   };
 
   return (
-    <div className='row w-100' style={{marginTop:'80px'}}>
-    <div className='col-md-2'></div>
-    <div className='col-md-8'>
-        <h2 className='mb-10 text-center'>Patient Details</h2>
-        <hr></hr>
-<div className="row w-100" style={{marginTop:'30px'}}>
+    <div style={{ width: '100vw', marginTop: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div style={{ width: '50vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <h2 className='mb-10'>Patient Details</h2>
+
+        <div className="row w-100 ">
           <div className='col-md-4 mb-2'>
             <TextField id="outlined-basic-1" label="First Name" variant="outlined" fullWidth onChange={(e) => setFormValues({ ...formValues, firstName: e.target.value })} />
           </div>

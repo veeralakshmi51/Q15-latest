@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,PayloadAction } from "@reduxjs/toolkit";
 
-// interface Patient{
-//   id:string;
-// }
-// interface PatientDetailsState{
-//   loading: boolean,
-//   patientData: Patient[],
-//   isOpen: boolean,
-//   errorMsg: string,
-// }
- export const initialState ={
+interface Patient{
+  id:string;
+}
+interface PatientDetailsState{
+  loading: boolean,
+  patientData: Patient[],
+  isOpen: boolean,
+  errorMsg: string,
+}
+ const initialState :PatientDetailsState={
   loading: false,
   patientData: [],
   isOpen: false,
@@ -27,7 +27,7 @@ const PatientCreationSlice = createSlice({
     setIsLoadingFalse(state) {
       state.loading = false;
     },
-    setErrorMessage(state, action) {
+    setErrorMessage(state, action:PayloadAction<string>) {
       state.loading = false;
       state.isOpen = true;
       state.errorMsg = action.payload;
@@ -38,7 +38,7 @@ const PatientCreationSlice = createSlice({
       state.errorMsg = "";
     },
 
-    getPatientSuccess(state, action) {
+    getPatientSuccess(state, action:PayloadAction<Patient[]>) {
       state.loading = false;
       state.patientData = action.payload;
     },
