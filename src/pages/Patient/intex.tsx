@@ -238,32 +238,34 @@ const Patient: React.FC = () => {
         <Table responsive bordered>
           <thead>
             <tr>
-              <th scope="col">patient Name</th>
-              <th scope="col">patient ID</th>
-              <th scope="col">Date of Birth</th>
-              <th scope="col">Email</th>
-              <th scope="col">SSN</th>
-              <th scope="col">Beacon Device</th>
+              <th scope="col" className="text-center">S.No</th>
+              <th scope="col" className="text-center">patient Name</th>
+              <th scope="col" className="text-center">patient ID</th>
+              <th scope="col" className="text-center">Date of Birth</th>
+              <th scope="col" className="text-center">Email</th>
+              <th scope="col" className="text-center">SSN</th>
+              <th scope="col" className="text-center">Beacon Device</th>
               {/* <th scope="col">Gender</th> */}
-              <th scope="col">Action</th>
+              <th scope="col" className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
-            {currentPatientData.map((patient: any) => (
-              <tr key={patient.id}>
-                <td
+            {currentPatientData.map((patient: any,index:number) => (
+              <tr key={index}>
+                <td className="text-center">{index+1}</td>
+                <td className="text-center"
                   style={{ cursor: "pointer" }}
                   onClick={() => handleClick(patient)}
                 >
                   {patient.basicDetails[0].name[0].given}{" "}
                   {patient.basicDetails[0].name[0].family}
                 </td>
-                <td>{patient.id}</td>
-                <td>{patient.basicDetails[0].birthDate}</td>
-                <td>{patient.email}</td>
-                <td>{patient.basicDetails[0].ssn}</td>
+                <td className="text-center">{patient.id}</td>
+                <td className="text-center">{patient.basicDetails[0].birthDate}</td>
+                <td className="text-center">{patient.email}</td>
+                <td className="text-center">{patient.basicDetails[0].ssn}</td>
 
-                <td>{patient.beaconDevice}</td>
+                <td className="text-center">{patient.beaconDevice}</td>
 
                 {/* <td>{patient.basicDetails[0].gender}</td> */}
                <td className="text-center">
@@ -330,7 +332,7 @@ const Patient: React.FC = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                 />
-                <label
+                {/* <label
                   htmlFor="email"
                   className="floating-label"
                   style={{ fontWeight: "bold" }}
@@ -344,8 +346,8 @@ const Patient: React.FC = () => {
                   placeholder="Enter Email"
                   value={formData.email}
                   onChange={handleChange}
-                />
-                <label
+                /> */}
+                {/* <label
                   htmlFor="ssn"
                   className="floating-label"
                   style={{ fontWeight: "bold" }}
@@ -359,7 +361,7 @@ const Patient: React.FC = () => {
                   placeholder="Enter SSN"
                   value={formData.ssn}
                   onChange={handleChange}
-                />
+                /> */}
                 <label
                   htmlFor="mrNumber"
                   className="floating-label"
@@ -376,7 +378,7 @@ const Patient: React.FC = () => {
                   onChange={handleChange}
                 />
 
-                <label
+                {/* <label
                   htmlFor="gender"
                   className="floating-label"
                   style={{ fontWeight: "bold" }}
@@ -390,8 +392,8 @@ const Patient: React.FC = () => {
                   placeholder="Enter Gender"
                   value={formData.gender}
                   onChange={handleChange}
-                />
-                <label
+                /> */}
+                {/* <label
                   htmlFor="birthDate"
                   className="floating-label"
                   style={{ fontWeight: "bold" }}
@@ -405,7 +407,7 @@ const Patient: React.FC = () => {
                   placeholder="Enter BirthDate"
                   value={formData.birthDate}
                   onChange={handleChange}
-                />
+                /> */}
                 <label
                   htmlFor="addressLine1"
                   className="floating-label"

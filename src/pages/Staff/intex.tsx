@@ -151,7 +151,7 @@ const Staff: React.FC = () => {
       dateofBirth: formData.dateofBirth,
       ssn: formData.ssn,
       npi: formData.npi,
-      //userType:formData.userType,
+      userType:formData.userType,
       contact: [
         {
           address: [
@@ -235,6 +235,7 @@ const Staff: React.FC = () => {
         <Table className="table table-bordered">
           <thead>
             <tr>
+              <th scope="col">S.No</th>
               <th scope="col">Staff Name</th>
               <th scope="col">Staff ID</th>
               <th scope="col">Date of Birth</th>
@@ -245,8 +246,9 @@ const Staff: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {currentStaffData.map((staff: any) => (
-              <tr key={staff.id}>
+            {currentStaffData.map((staff: any,index:number) => (
+              <tr key={index}>
+                <td>{index+1}</td>
                 <td
                   style={{ cursor: "pointer" }}
                   onClick={() => handleClick(staff)}

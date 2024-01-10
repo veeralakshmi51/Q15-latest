@@ -404,12 +404,16 @@ const PatientCreation: React.FC = () => {
       console.log('API response:', response.data);
       console.log('Request : ', requestBody)
       if (response.data.message && response.data.message.code === 'MHC - 0200') {
+        //alert(response.data.message.description)
         toast.success(response.data.message.description)
+
         navigate('/patient-table');
       } else {
         console.log('Request : ', requestBody)
         console.log('Error Registering:',response.data.message)
         toast.warning(`Error: ${response.data.message.description}`);
+        //alert(`Error: ${response.data.message.description}`);
+
 
     }
   }catch (error) {
@@ -468,11 +472,12 @@ const PatientCreation: React.FC = () => {
   };
 
   return (
-    <div style={{ width: '100vw', marginTop: '30px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div style={{ width: '50vw', height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <h2 className='mb-10'>Patient Details</h2>
-
-        <div className="row w-100 ">
+    <div className='row w-100' style={{marginTop:'60px'}}>
+    <div className='col-md-2'></div>
+    <div className='col-md-8'>
+    <h2 className='mb-2 text-center' >Patient Details</h2>
+    <hr></hr>
+    <div className="row w-100 " style={{marginTop:'30px'}}>
           <div className='col-md-4 mb-2'>
             <TextField id="outlined-basic-1" label="First Name" variant="outlined" fullWidth onChange={(e) => setFormValues({ ...formValues, firstName: e.target.value })} />
           </div>
@@ -489,7 +494,7 @@ const PatientCreation: React.FC = () => {
             {renderDropdown('gender')}
           </div>
           <div className='col-md-6 mb-2'>
-            <TextField id="outlined-basic-2" label="Date of Birth" variant="outlined" type='date' fullWidth onChange={(e) => setFormValues({ ...formValues, birthDate: e.target.value })} />
+            <TextField id="outlined-basic-2" label="Date of Birth" variant="outlined"  fullWidth onChange={(e) => setFormValues({ ...formValues, birthDate: e.target.value })} />
           </div>
         </div>
 
@@ -538,7 +543,7 @@ const PatientCreation: React.FC = () => {
           </div>
         </div>
 
-        <div className="card d-flex flex-row gap-3 mt-2">
+        <div className="d-flex gap-3 justify-content-end mt-4">
           <Button label="Cancel" onClick={() => { navigate('/patient-table') }} severity="secondary" style={{ color: '#000', backgroundColor: '#fff', border: '2px solid #0f3995' }} />
           <Button label="Save" style={{ backgroundColor: '#0f3995' }} onClick={handleSaveClick} />
         </div>

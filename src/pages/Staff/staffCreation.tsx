@@ -242,6 +242,7 @@ const Staff = () => {
     onChange={handleChange}
     placeholder=''
   >
+    <MenuItem value={'Select UserType'} disabled>Select UserType</MenuItem>
         <MenuItem value={'Admin'}>Admin</MenuItem>
     <MenuItem value={'Staff'}>Staff</MenuItem>
   </Select>
